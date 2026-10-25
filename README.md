@@ -72,9 +72,11 @@ Akses aplikasi melalui browser di tautan: http://localhost:8000
 ## 6. Demo account
 Gunakan kredensial berikut untuk menguji sistem (Role-Based Access Control):
 
-- Admin (Akses Dashboard & Inventaris): admin@orvelo.com | Password: password123
+- Admin (Akses Dashboard & Inventaris): admin@gmail.com | Password: password123
 
-- Customer (Akses Etalase & Transaksi): customer@orvelo.com | Password: password123
+- Customer (Akses Etalase & Transaksi): customer@gmail.com | Password: password123
+
+- Staff (Akses Dasboard & Inventaris): staff@gmail.com | Password: password123
 
 ## 7. Features
 Fitur utama yang dipersyaratkan dan tersedia di aplikasi Orvélo:
