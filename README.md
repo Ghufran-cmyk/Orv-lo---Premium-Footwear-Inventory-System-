@@ -31,7 +31,7 @@ cd nama-repo-anda
 Bash
 composer install
 
-4. Environment setup
+## 4. Environment setup
 Pengaturan lingkungan sistem dan koneksi database:
 
 Salin file konfigurasi environment dari bawaan Laravel:
@@ -55,7 +55,8 @@ DB_PORT=3306
 DB_DATABASE=orvelo_db
 DB_USERNAME=root
 DB_PASSWORD=
-5. Migration & seeding
+
+## 5. Migration & seeding
 Membangun struktur tabel database beserta datanya:
 
 Jalankan perintah migrasi beserta seeder di terminal:
@@ -68,41 +69,34 @@ Bash
 php artisan serve
 Akses aplikasi melalui browser di tautan: http://localhost:8000
 
-6. Demo account
+## 6. Demo account
 Gunakan kredensial berikut untuk menguji sistem (Role-Based Access Control):
 
-Admin (Akses Dashboard & Inventaris): admin@orvelo.com | Password: password123
+- Admin (Akses Dashboard & Inventaris): admin@orvelo.com | Password: password123
 
-Customer (Akses Etalase & Transaksi): customer@orvelo.com | Password: password123
+- Customer (Akses Etalase & Transaksi): customer@orvelo.com | Password: password123
 
-7. Features
+## 7. Features
 Fitur utama yang dipersyaratkan dan tersedia di aplikasi Orvélo:
 
-Authentication: Login/logout dan pemisahan hak akses panel secara ketat.
+- Authentication: Login/logout dan pemisahan hak akses panel secara ketat.
+- Master Data: Fitur CRUD lengkap untuk tabel Kategori, Produk, dan Supplier.
+- Purchasing: Pencatatan stok masuk dari pemasok untuk menambah jumlah barang di gudang.
+- Sales & Cart: Transaksi etalase interaktif yang mendukung pembelian banyak tipe barang sekaligus.
+- Automated Stock: Pengurangan sisa barang otomatis saat checkout dan validasi pencegahan transaksi jika melebihi stok gudang.
+- Navigation: Fitur pencarian nama produk, filter kategori kustom, dan navigasi pagination.
 
-Master Data: Fitur CRUD lengkap untuk tabel Kategori, Produk, dan Supplier.
-
-Purchasing: Pencatatan stok masuk dari pemasok untuk menambah jumlah barang di gudang.
-
-Sales & Cart: Transaksi etalase interaktif yang mendukung pembelian banyak tipe barang sekaligus.
-
-Automated Stock: Pengurangan sisa barang otomatis saat checkout dan validasi pencegahan transaksi jika melebihi stok gudang.
-
-Navigation: Fitur pencarian nama produk, filter kategori kustom, dan navigasi pagination.
-
-8. Known limitations
+## 8. Known limitations
 Kekurangan atau batasan pada sistem versi saat ini:
 
-Belum terintegrasi dengan Payment Gateway pihak ketiga (masih berupa simulasi kasir potong stok).
+- Belum terintegrasi dengan Payment Gateway pihak ketiga (masih berupa simulasi kasir potong stok).
+- Fitur cetak bukti pembayaran (invoice) masih mengandalkan fitur print dialog bawaan dari browser.
+- Ongkos kirim tidak dihitung secara dinamis karena belum ada integrasi API pihak logistik pengiriman.
 
-Fitur cetak bukti pembayaran (invoice) masih mengandalkan fitur print dialog bawaan dari browser.
-
-Ongkos kirim tidak dihitung secara dinamis karena belum ada integrasi API pihak logistik pengiriman.
-
-9. Entity Relationship Diagram (ERD)
+## 9. Entity Relationship Diagram (ERD)
 Berikut adalah struktur relasi database sistem, mencakup penanda Primary Key (PK), Foreign Key (FK), Unique Key (UK), dan Index (IDX) untuk optimasi pencarian.
 
-Cuplikan kode
+```mermaid
 erDiagram
     USERS ||--o{ PURCHASES : "creates (Admin)"
     USERS ||--o{ SALES : "makes (Customer)"
@@ -182,3 +176,4 @@ erDiagram
         bigint product_id FK "IDX"
         integer quantity
     }
+```
